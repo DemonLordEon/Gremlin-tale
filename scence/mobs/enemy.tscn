@@ -1,0 +1,112 @@
+[gd_scene load_steps=12 format=3 uid="uid://b6yxkb82pktxg"]
+
+[ext_resource type="Script" path="res://script/enemy.gd" id="1_pro8k"]
+[ext_resource type="Texture2D" uid="uid://be0hdbcq0m3xs" path="res://sprite/Characters/Enemy/Enemy_rat-export.png" id="2_jj084"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypalf"]
+atlas = ExtResource("2_jj084")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttbkq"]
+atlas = ExtResource("2_jj084")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b28pt"]
+atlas = ExtResource("2_jj084")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsuun"]
+atlas = ExtResource("2_jj084")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6374a"]
+atlas = ExtResource("2_jj084")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6wn6s"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypalf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttbkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b28pt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsuun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6374a")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vfkrv"]
+radius = 389.032
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2hrgk"]
+radius = 56.0089
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0oyj5"]
+radius = 102.078
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_pro8k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(21, -54)
+scale = Vector2(1.38672, 1.82744)
+sprite_frames = SubResource("SpriteFrames_6wn6s")
+animation = &"idle"
+offset = Vector2(0, -16)
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(14, -67)
+shape = SubResource("CircleShape2D_vfkrv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, -52)
+shape = SubResource("CircleShape2D_2hrgk")
+
+[node name="enemy_hitbox" type="Area2D" parent="."]
+position = Vector2(168, -62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
+position = Vector2(-148, 4)
+shape = SubResource("CircleShape2D_0oyj5")
+
+[node name="take_damage_cooldown" type="Timer" parent="."]
+
+[node name="healthbar" type="ProgressBar" parent="."]
+modulate = Color(0.94902, 1, 0.611765, 1)
+self_modulate = Color(0.937255, 1, 0.65098, 1)
+offset_left = -31.0
+offset_top = 16.0
+offset_right = 73.0
+offset_bottom = 43.0
+show_percentage = false
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]
+[connection signal="timeout" from="take_damage_cooldown" to="." method="_on_take_damage_cooldown_timeout"]

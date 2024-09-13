@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://4g6f2ymfn72o"]
+
+[ext_resource type="Script" path="res://script/game.gd" id="1_m56t2"]
+[ext_resource type="PackedScene" uid="uid://4hi217agi26d" path="res://scence/character/death.tscn" id="1_uho0k"]
+[ext_resource type="Texture2D" uid="uid://bxmrkgda3qetn" path="res://icon.svg" id="2_bem2k"]
+[ext_resource type="Script" path="res://script/EXP.gd" id="3_plq5e"]
+[ext_resource type="PackedScene" uid="uid://b6yxkb82pktxg" path="res://scence/mobs/enemy.tscn" id="4_0es3u"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_m56t2")
+
+[node name="Death" parent="." instance=ExtResource("1_uho0k")]
+position = Vector2(-117, -226)
+
+[node name="Camera2D" type="Camera2D" parent="Death"]
+position = Vector2(76, 3)
+zoom = Vector2(0.5, 0.5)
+
+[node name="EXP" type="Label" parent="Death"]
+offset_left = -1065.0
+offset_top = -633.0
+offset_right = -665.0
+offset_bottom = -533.0
+theme_type_variation = &"HeaderLarge"
+script = ExtResource("3_plq5e")
+metadata/_edit_use_anchors_ = true
+
+[node name="Interface" type="Control" parent="Death"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1052.0
+offset_top = -618.0
+offset_right = -676.0
+offset_bottom = -558.0
+
+[node name="ExperienceBar" type="TextureProgressBar" parent="Death/Interface"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(472, 285.5)
+scale = Vector2(7.45313, 1.42969)
+texture = ExtResource("2_bem2k")
+
+[node name="enemy" parent="." instance=ExtResource("4_0es3u")]
+position = Vector2(556, -15)

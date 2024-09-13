@@ -1,0 +1,129 @@
+[gd_scene load_steps=16 format=3 uid="uid://4hi217agi26d"]
+
+[ext_resource type="Script" path="res://script/character/death.gd" id="1_7qclr"]
+[ext_resource type="Texture2D" uid="uid://4ue4kbc4gqu8" path="res://sprite/Characters/Death/Chibi_death_forward-export.png" id="2_mp5wc"]
+[ext_resource type="Texture2D" uid="uid://dojkxngysy7hq" path="res://sprite/Characters/Death/Chibi_Death-export.png" id="3_gqfdo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jys2"]
+atlas = ExtResource("2_mp5wc")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqc3n"]
+atlas = ExtResource("2_mp5wc")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2ynn"]
+atlas = ExtResource("2_mp5wc")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyeg6"]
+atlas = ExtResource("2_mp5wc")
+region = Rect2(1920, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5o0l"]
+atlas = ExtResource("2_mp5wc")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ovq0"]
+atlas = ExtResource("3_gqfdo")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtlap"]
+atlas = ExtResource("3_gqfdo")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfi2g"]
+atlas = ExtResource("3_gqfdo")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu5cg"]
+atlas = ExtResource("3_gqfdo")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11q5x"]
+atlas = ExtResource("3_gqfdo")
+region = Rect2(1920, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1pgf6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jys2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqc3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2ynn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyeg6")
+}],
+"loop": true,
+"name": &"front_walking",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5o0l")
+}],
+"loop": true,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ovq0")
+}],
+"loop": true,
+"name": &"idle_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtlap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfi2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu5cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11q5x")
+}],
+"loop": true,
+"name": &"side_walking",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3i5qp"]
+radius = 62.0
+height = 510.0
+
+[node name="Death" type="CharacterBody2D"]
+script = ExtResource("1_7qclr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(54, -84)
+scale = Vector2(1, 0.916)
+sprite_frames = SubResource("SpriteFrames_1pgf6")
+animation = &"side_walking"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(68, -84)
+shape = SubResource("CapsuleShape2D_3i5qp")
+
+[node name="healthbar" type="ProgressBar" parent="."]
+modulate = Color(0.211765, 0.780392, 0.615686, 1)
+offset_left = -161.0
+offset_top = 221.0
+offset_right = 348.0
+offset_bottom = 339.0
+show_percentage = false
+
+[node name="Regen_timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Regen_timer" to="." method="_on_regen_timer_timeout"]
