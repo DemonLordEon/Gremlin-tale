@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blgbn811rc3cb"
-path="res://.godot/imported/Chibi_death_backwards_2_-_Attack.png-a5f93b9b5e723a4758493cedf58636e7.ctex"
+uid="uid://g1tdiagj2ync"
+path="res://.godot/imported/Chibi_death_forward_-_kopia-export.png-8a31618817eaf244f3f728e73b16999d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://script/Chibi_death_backwards_2_-_Attack.png"
-dest_files=["res://.godot/imported/Chibi_death_backwards_2_-_Attack.png-a5f93b9b5e723a4758493cedf58636e7.ctex"]
+source_file="res://sprite/Characters/Death/Chibi_death_forward_-_kopia-export.png"
+dest_files=["res://.godot/imported/Chibi_death_forward_-_kopia-export.png-8a31618817eaf244f3f728e73b16999d.ctex"]
 
 [params]
 

@@ -2,20 +2,26 @@ extends CharacterBody2D
 
 @onready var enemy = get_node("/root/game/enemy")
 
+#trying to create exp this code dosent work entiwrly yet
+@onready var _character = get_node("/root/game/Player")
+@onready var _label = get_node("/root/game/Player/EXP")
+@onready var _bar : TextureProgressBar = get_node("/root/game/Player/Interface/ExperienceBar")
+@onready var _en = get_node("/root/game/enemy")
+
 var enemy_inattack_range = false 
 var enemy_attack_cooldown = true 
 
 @export var health = 100
 @export var strength = 20
-@export var magic = 1
+@export var magick = 1
 
 @export var level = 1
-
+var experience_required = get_experience_required(level + 1)
 var experience = 0
 var experience_total = 0
-var experience_required = get_experience_required(level + 1)
 
 var player_alive = true 
+var current_player = "death"
 
 var attack_ip = false 
 
@@ -24,12 +30,31 @@ var current_dir = "idle"
 var is_moving = false
 
 
+
+const character_template = {
+	"death" : {
+		"health" : 20,
+		"strength" : 20,
+	},
+	"kapish" : {
+		"health" : 15,
+		"magick" : 25,
+	},
+	"koda" : {
+		"health" : 30,
+		"strength" : 20,
+	},
+	
+}
+
+
 func _physics_process(delta):
 	player_movement(delta)
 	move_and_slide()  # Move the player based on the calculated velocity
 	enemy_attack()
 	attack()
 	update_health()
+	gain_experience
 	
 	if health <= 0:
 		player_alive = false #add end screen /respan 
@@ -73,14 +98,14 @@ func play_animation(is_moving):
 		"right":
 			animation.flip_h = false
 			if is_moving:
-				animation.play("side_walking")
+				animation.play("side_walking_%s" % current_player)
 			else:
 				if attack_ip == false:
 					animation.play("idle_side")
 		"left":
 			animation.flip_h = true
 			if is_moving:
-				animation.play("side_walking")
+				animation.play("side_walking_%s" % current_player)
 			else:
 				if attack_ip == false:
 					animation.play("idle_side")
@@ -117,6 +142,7 @@ func enemy_attack():
 		enemy_attack_cooldown = false 
 		$attack_cooldown.start()
 		print(health) 
+
 
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true 
@@ -168,9 +194,16 @@ func _on_regen_timer_timeout():
 	if health <= 0:
 		health = 0
 		
-func get_experience_required(lvl):  # Changed 'level' to 'lvl'
+func get_experience_required(lvl):  
 	return round(pow(lvl, 1.8) + lvl * 4)
 	
+func _ready():
+	_label.update_text(_character.level, _character.experience, _character.experience_required) 
+
+func _input(event):
+	_label.update_text(_character.level, _character.experience, _character.experience_required) 
+		
+		
 func gain_experience(amount):
 	experience_total += amount
 	experience += amount 

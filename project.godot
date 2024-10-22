@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Gremlintale"
-run/main_scene="res://scence/game/game.tscn"
+run/main_scene="res://scence/game/start_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-global="*res://script/game.gd"
+global="*res://script/Game/game.gd"
 
 [display]
 

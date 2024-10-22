@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@onready var death = get_node("/root/game/Death")
+@onready var death = get_node("/root/game/Player")
+@onready var global = get_node("/root/global")
 
 var speed = 40 
 var player_chase = false 
@@ -11,17 +12,16 @@ var strength = 20
 
 var enemy_dead = false
 
-var gained_experience = 50
+var gained_experience = 5
 
 var player_inattack_zone = false 
 var can_take_damage = true 
-
-var a = 1
 
 func _physics_process(delta):
 	deal_with_damadge()
 	update_health()
 	var animation = $AnimatedSprite2D
+	gained_experience
 	
 	if player_chase:
 		position += (player.position - position) / speed
@@ -53,15 +53,26 @@ func _on_enemy_hitbox_body_exited(body):
 	if body.has_method("player"):
 		player_inattack_zone = false 
 		
+
 func deal_with_damadge():
 	if player_inattack_zone and global.player_current_attack:
 		if can_take_damage:
 			health -= death.strength
 			$take_damage_cooldown.start()
-			can_take_damage = false 
+			can_take_damage = false
 			print("slime health = ", health)
+			
 			if health <= 0:
-				self.queue_free()
+				enemy_die()  # Call a function to handle the enemy's death
+
+
+func enemy_die():
+	print("Enemy has been killed")
+	death.gain_experience(gained_experience)
+	queue_free()  # Remove the enemy from the scene
+
+				
+		
 
 func _on_take_damage_cooldown_timeout():
 	can_take_damage = true 
