@@ -101,28 +101,28 @@ func play_animation(is_moving):
 				animation.play("side_walking_%s" % current_player)
 			else:
 				if attack_ip == false:
-					animation.play("idle_side")
+					animation.play("idle_side_%s" % current_player)
 		"left":
 			animation.flip_h = true
 			if is_moving:
 				animation.play("side_walking_%s" % current_player)
 			else:
 				if attack_ip == false:
-					animation.play("idle_side")
+					animation.play("idle_side_%s" % current_player)
 		"down":
 			animation.flip_v = false  # Flip vertically if needed
 			if is_moving:
-				animation.play("front_walking")
+				animation.play("front_walking_%s" % current_player)
 			else:
 				if attack_ip == false:
-					animation.play("idle_front")
+					animation.play("idle_front_%s" % current_player)
 		"up":
 			animation.flip_v = false  # Flip vertically if needed
 			if is_moving:
-				animation.play("back_walking")
+				animation.play("back_walking_%s" % current_player)
 			else:
 				if attack_ip == false:
-					animation.play("idle_back")
+					animation.play("idle_back_%s" % current_player)
 			
 func player():
 	pass
