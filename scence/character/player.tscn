@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://4hi217agi26d"]
+[gd_scene load_steps=104 format=3 uid="uid://4hi217agi26d"]
 
 [ext_resource type="Script" path="res://script/character/player.gd" id="1_7qclr"]
 [ext_resource type="Texture2D" uid="uid://4ue4kbc4gqu8" path="res://sprite/Characters/Death/Chibi_death_forward-export.png" id="2_mp5wc"]
@@ -8,11 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://mcqq07qxv5ca" path="res://sprite/Characters/Death/Chibi_Death_-_Attack.png" id="4_q3am5"]
 [ext_resource type="Texture2D" uid="uid://dajeu0c8k4j7w" path="res://sprite/Characters/Death/Chibi_death_forward.png" id="4_ymc0x"]
 [ext_resource type="Texture2D" uid="uid://bsmbk6e8vm4lw" path="res://sprite/Characters/Death/Chibi_Death_-_idle-export.png" id="5_jtejh"]
+[ext_resource type="Texture2D" uid="uid://bbl5x6qu6tewy" path="res://sprite/Characters/Koda/Chibi_Koda_forward_walk-Sheet.png" id="6_7cws6"]
 [ext_resource type="Texture2D" uid="uid://daue3j83rejnk" path="res://sprite/Characters/Kapish/Chibi_Kapish_Forward-Sheet.png" id="6_fvyqs"]
 [ext_resource type="Texture2D" uid="uid://dtrabcl4kmj7h" path="res://sprite/Characters/Kapish/Chibi_Kapish_backwards-Sheet-idle.png" id="7_qn6i8"]
 [ext_resource type="Texture2D" uid="uid://dbgdh6ycwft06" path="res://sprite/Characters/Kapish/Chibi_Kapish_Forward-Sheet-front-idle.png" id="8_4yn0y"]
+[ext_resource type="Texture2D" uid="uid://bdtt11weq5owg" path="res://sprite/Characters/Koda/Chibi_Koda_backwards-idle-Sheet.png" id="9_1lvty"]
 [ext_resource type="Texture2D" uid="uid://3ms3jbp47mgf" path="res://sprite/Characters/Kapish/Base-Sheetkapish.png" id="10_hjeyo"]
+[ext_resource type="Texture2D" uid="uid://c0mslnsuj0yhy" path="res://sprite/Characters/Koda/Chibi_Koda_forward-Sheet-idle-front.png" id="11_2ad2v"]
 [ext_resource type="Texture2D" uid="uid://ddu2b5xdso4b3" path="res://sprite/Characters/Kapish/Chibi_kapish-Sheet.png" id="13_ugr4i"]
+[ext_resource type="Texture2D" uid="uid://b15ejxxp4xeek" path="res://sprite/Characters/Koda/Chibi_Koda-Sheet-idle-side.png" id="14_3nar7"]
+[ext_resource type="Texture2D" uid="uid://cxge1sfh5hmvx" path="res://sprite/Characters/Koda/Chibi_Koda_side-walk-Sheet.png" id="17_otd1d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lqogo"]
 atlas = ExtResource("4_ymc0x")
@@ -122,6 +127,22 @@ region = Rect2(1280, 0, 640, 640)
 atlas = ExtResource("6_fvyqs")
 region = Rect2(1920, 0, 640, 640)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gay3"]
+atlas = ExtResource("6_7cws6")
+region = Rect2(0, 0, 640, 690)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w1sf"]
+atlas = ExtResource("6_7cws6")
+region = Rect2(640, 0, 640, 690)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u7xv"]
+atlas = ExtResource("6_7cws6")
+region = Rect2(1280, 0, 640, 690)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uehn"]
+atlas = ExtResource("6_7cws6")
+region = Rect2(1920, 0, 640, 690)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_llfn5"]
 atlas = ExtResource("4_ymc0x")
 region = Rect2(640, 0, 640, 640)
@@ -142,6 +163,22 @@ region = Rect2(1280, 0, 640, 640)
 atlas = ExtResource("7_qn6i8")
 region = Rect2(1920, 0, 640, 640)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlub5"]
+atlas = ExtResource("9_1lvty")
+region = Rect2(0, 0, 640, 670)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k7pa"]
+atlas = ExtResource("9_1lvty")
+region = Rect2(640, 0, 640, 670)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo105"]
+atlas = ExtResource("9_1lvty")
+region = Rect2(1280, 0, 640, 670)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbs8m"]
+atlas = ExtResource("9_1lvty")
+region = Rect2(1920, 0, 640, 670)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_b5o0l"]
 atlas = ExtResource("2_mp5wc")
 region = Rect2(640, 0, 640, 640)
@@ -161,6 +198,22 @@ region = Rect2(1280, 0, 640, 640)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jicj"]
 atlas = ExtResource("8_4yn0y")
 region = Rect2(1920, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_heu1k"]
+atlas = ExtResource("11_2ad2v")
+region = Rect2(0, 0, 640, 690)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1hj2"]
+atlas = ExtResource("11_2ad2v")
+region = Rect2(640, 0, 640, 690)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juhl4"]
+atlas = ExtResource("11_2ad2v")
+region = Rect2(1280, 0, 640, 690)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bo37"]
+atlas = ExtResource("11_2ad2v")
+region = Rect2(1920, 0, 640, 690)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fxchb"]
 atlas = ExtResource("5_jtejh")
@@ -193,6 +246,22 @@ region = Rect2(1280, 0, 640, 670)
 [sub_resource type="AtlasTexture" id="AtlasTexture_qtcyd"]
 atlas = ExtResource("10_hjeyo")
 region = Rect2(1920, 0, 640, 670)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yknwq"]
+atlas = ExtResource("14_3nar7")
+region = Rect2(0, 0, 640, 680)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n7mg"]
+atlas = ExtResource("14_3nar7")
+region = Rect2(640, 0, 640, 680)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxmre"]
+atlas = ExtResource("14_3nar7")
+region = Rect2(1280, 0, 640, 680)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3515b"]
+atlas = ExtResource("14_3nar7")
+region = Rect2(1920, 0, 640, 680)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6uy8h"]
 atlas = ExtResource("3_gqfdo")
@@ -261,6 +330,22 @@ region = Rect2(1280, 0, 640, 670)
 [sub_resource type="AtlasTexture" id="AtlasTexture_r3de7"]
 atlas = ExtResource("13_ugr4i")
 region = Rect2(1920, 0, 640, 670)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i7tv"]
+atlas = ExtResource("17_otd1d")
+region = Rect2(0, 0, 640, 680)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4rr1"]
+atlas = ExtResource("17_otd1d")
+region = Rect2(640, 0, 640, 680)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h1hu"]
+atlas = ExtResource("17_otd1d")
+region = Rect2(1280, 0, 640, 680)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fcfa"]
+atlas = ExtResource("17_otd1d")
+region = Rect2(1920, 0, 640, 680)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1pgf6"]
 animations = [{
@@ -377,6 +462,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_6gay3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w1sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u7xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uehn")
+}],
+"loop": false,
+"name": &"front_walking_koda",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_llfn5")
 }],
 "loop": true,
@@ -402,6 +504,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hlub5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5k7pa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo105")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbs8m")
+}],
+"loop": true,
+"name": &"idle_back_koda",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_b5o0l")
 }],
 "loop": false,
@@ -423,6 +542,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_front_kapish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heu1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1hj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juhl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bo37")
+}],
+"loop": true,
+"name": &"idle_front_koda",
 "speed": 5.0
 }, {
 "frames": [{
@@ -458,6 +594,23 @@ animations = [{
 "loop": true,
 "name": &"idle_side_kapish",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yknwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n7mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxmre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3515b")
+}],
+"loop": true,
+"name": &"idle_side_koda",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -524,6 +677,23 @@ animations = [{
 "loop": false,
 "name": &"side_walking_kapish",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6i7tv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4rr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h1hu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fcfa")
+}],
+"loop": false,
+"name": &"side_walking_koda",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3i5qp"]
@@ -541,7 +711,7 @@ script = ExtResource("1_7qclr")
 position = Vector2(66, -297)
 scale = Vector2(1, 0.916)
 sprite_frames = SubResource("SpriteFrames_1pgf6")
-animation = &"side_walking_kapish"
+animation = &"side_walking_koda"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(74, -285)

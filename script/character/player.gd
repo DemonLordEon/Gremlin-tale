@@ -21,7 +21,6 @@ var experience = 0
 var experience_total = 0
 
 var player_alive = true 
-var current_player = "death"
 
 var attack_ip = false 
 
@@ -98,31 +97,31 @@ func play_animation(is_moving):
 		"right":
 			animation.flip_h = false
 			if is_moving:
-				animation.play("side_walking_%s" % current_player)
+				animation.play("side_walking_%s" % global.current_player)
 			else:
 				if attack_ip == false:
-					animation.play("idle_side_%s" % current_player)
+					animation.play("idle_side_%s" % global.current_player)
 		"left":
 			animation.flip_h = true
 			if is_moving:
-				animation.play("side_walking_%s" % current_player)
+				animation.play("side_walking_%s" % global.current_player)
 			else:
 				if attack_ip == false:
-					animation.play("idle_side_%s" % current_player)
+					animation.play("idle_side_%s" % global.current_player)
 		"down":
 			animation.flip_v = false  # Flip vertically if needed
 			if is_moving:
-				animation.play("front_walking_%s" % current_player)
+				animation.play("front_walking_%s" % global.current_player)
 			else:
 				if attack_ip == false:
-					animation.play("idle_front_%s" % current_player)
+					animation.play("idle_front_%s" % global.current_player)
 		"up":
 			animation.flip_v = false  # Flip vertically if needed
 			if is_moving:
-				animation.play("back_walking_%s" % current_player)
+				animation.play("back_walking_%s" % global.current_player)
 			else:
 				if attack_ip == false:
-					animation.play("idle_back_%s" % current_player)
+					animation.play("idle_back_%s" % global.current_player)
 			
 func player():
 	pass
@@ -155,17 +154,17 @@ func attack():
 		attack_ip = true 
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false 
-			$AnimatedSprite2D.play("side_attack")
+			$AnimatedSprite2D.play("side_attack_%s" % global.current_player)
 			$deal_attack_timer.start()
 		if dir ==  "left":
 			$AnimatedSprite2D.flip_h = true  
-			$AnimatedSprite2D.play("side_attack")
+			$AnimatedSprite2D.play("side_attack_%s" % global.current_player)
 			$deal_attack_timer.start()
 		if dir == "down":  
-			$AnimatedSprite2D.play("front_attack")
+			$AnimatedSprite2D.play("front_attack_%s" % global.current_player)
 			$deal_attack_timer.start()
 		if dir == "up":
-			$AnimatedSprite2D.play("back_attack")
+			$AnimatedSprite2D.play("back_attack_%s" % global.current_player)
 			$deal_attack_timer.start()
 	
 	
