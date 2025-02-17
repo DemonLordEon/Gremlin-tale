@@ -5,8 +5,11 @@ extends CharacterBody2D
 #trying to create exp this code dosent work entiwrly yet
 @onready var _character = get_node("/root/game/Player")
 @onready var _label = get_node("/root/game/Player/EXP")
+
 @onready var _bar : TextureProgressBar = get_node("/root/game/Player/Interface/ExperienceBar")
 @onready var _en = get_node("/root/game/enemy")
+
+@onready var _in_menu = get_node("/root/game/in_game_menu")
 
 var enemy_inattack_range = false 
 var enemy_attack_cooldown = true 
@@ -53,7 +56,7 @@ func _physics_process(delta):
 	enemy_attack()
 	attack()
 	update_health()
-	gain_experience
+
 	
 	if health <= 0:
 		player_alive = false #add end screen /respan 
@@ -216,3 +219,12 @@ func level_up():
 	var stats = ['health', 'strength', 'magic']
 	var random_stat = stats[randi() % stats.size()]
 	set(random_stat, get(random_stat) + randi() % 4 + 2)
+	
+	
+
+func load_data(file_name):
+	var load_file = FileAccess.open("user://" + file_name, FileAccess.READ)
+	if load_file:
+		var json_data = load_file.get_pascal_string()
+		
+		
