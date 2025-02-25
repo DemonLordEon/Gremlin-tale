@@ -64,6 +64,11 @@ func _physics_process(delta):
 		print("player has been killed ")
 		self.queue_free()
 	
+	if Input.is_action_pressed("ESC"):
+		_in_menu.visible = !_in_menu.visible
+
+		
+	
 func player_movement(delta):
 	is_moving = false
 	
@@ -226,5 +231,10 @@ func load_data(file_name):
 	var load_file = FileAccess.open("user://" + file_name, FileAccess.READ)
 	if load_file:
 		var json_data = load_file.get_pascal_string()
-		
+	
+	
+	
+	
+			
+	
 		

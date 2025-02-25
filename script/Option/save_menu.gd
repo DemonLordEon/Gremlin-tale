@@ -60,12 +60,6 @@ func _on_save_1_pressed():
 	hide()
 	_character.show()
 	_en.show()
-	
-func _on_save_2_pressed():
-	_on_save_slot_pressed(2)
-
-func _on_save_3_pressed():
-	_on_save_slot_pressed(3)
 
 
 # C:\Users\ella0502\AppData\Roaming\Godot\app_userdata\gremlintale find the save file 

@@ -23,5 +23,3 @@ func _ready():
 	var eon_button = $MarginContainer/VBoxContainer/Eon
 	eon_button.visible = false
 	
-
-
